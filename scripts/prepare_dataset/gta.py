@@ -72,7 +72,7 @@ def calculate_projection_points(height, rot_x, rot_y, rot_z, temp_x, temp_y, hfo
     # Convert angles from degrees to radians
     hfov_rad = math.radians(hfov)
     vfov_rad = math.radians(vfov)
-    rot_x = abs(rot_x + 90)
+    rot_x = rot_x + 90
     tilt_angle_rad = math.radians(rot_x)
 
     # print(hfov_rad, vfov_rad, tilt_angle_rad)
@@ -110,15 +110,15 @@ def calculate_projection_points(height, rot_x, rot_y, rot_z, temp_x, temp_y, hfo
     return actual_points
 
 def correct_proj_points():
-    meta_data_dir = '/home/xmuairmud/data/GTA-UAV-data/randcam2_5area/drone/meta_data_bk'
-    meta_data_correct_dir = '/home/xmuairmud/data/GTA-UAV-data/randcam2_5area/drone/meta_data'
+    meta_data_dir = '/home/xmuairmud/data/GTA-UAV-data/GTA-UAV-official/randcam2_std0_stable_5area/drone/meta_data_bk'
+    meta_data_correct_dir = '/home/xmuairmud/data/GTA-UAV-data/GTA-UAV-official/randcam2_std0_stable_5area/drone/meta_data'
 
     for filename in os.listdir(meta_data_dir):
         with open(os.path.join(meta_data_dir, filename), 'r') as file:
             line = file.readline().strip()
             values = line.split()
 
-            height = float(values[3])    
+            height = float(values[3])
             cam_roll = float(values[7])
             cam_pitch = float(values[8])
             cam_yaw = float(values[9])
@@ -581,9 +581,9 @@ if __name__ == "__main__":
     # correct_proj_points()
     # rename_tile()
 
-    root = '/home/xmuairmud/data/GTA-UAV-data/randcam2_5area'
-    save_root = '/home/xmuairmud/data/GTA-UAV-data/randcam2_5area/same_h123456_z4567_correct'
-    process_gta_data(root, save_root, h_list=[100, 200, 300, 400, 500, 600], zoom_list=[4, 5, 6, 7], offset_list=[0], split_type='same')
+    root = '/home/xmuairmud/data/GTA-UAV-data/GTA-UAV-official/randcam2_std0_stable_5area'
+    save_root = '/home/xmuairmud/data/GTA-UAV-data/GTA-UAV-official/randcam2_std0_stable_5area/cross_area'
+    process_gta_data(root, save_root, h_list=[100, 200, 300, 400, 500, 600], zoom_list=[4, 5, 6, 7], offset_list=[0], split_type='cross')
 
     # write_json(pickle_root=save_root, root=root, split_type='same')
 

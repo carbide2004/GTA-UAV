@@ -5,6 +5,10 @@
 
 </p>
 
+<h5 align="center">
+  If you like our project, please give us a star ⭐️ for the continuous updates.
+</h5>
+
 <p align="center">
   By <a href="https://yux1angji.github.io/" target='_blank'>Yuxiang Ji*</a>,&nbsp;
   Boyong He*,&nbsp; Zhuoyue Tan,&nbsp; Liaoni Wu
@@ -30,6 +34,7 @@
 
 ## <a id="news"></a> 🔥 News
 
+- [Oct 20, 2025]: Bug fix for data angle calculation ⚠️
 - [Dec 10, 2024]: Game4Loc is accepted by AAAI'25 🎉
 - [Sep 28, 2024]: Official GTA-UAV dataset release 🚧
 
@@ -61,12 +66,12 @@
 - Drone (camera) 6-DoF labels for each drone image.
 
 ## <a id="dataset-access"></a> 💾 Dataset Access
-The dataset is released in two versions: low resolution (512x384, 12.8G) and high resolution (1920x1440, 143.3G).
+The dataset is released in two versions: low resolution (512x384, 12.8G) and high resolution (1920x1440, 143.3G). Last updated in Oct 2025.
 
 |                                      Low Resolution Version                                      |                                     High Resolution Version                                      |
 |:------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------:|
 | [HuggingFace🤗](https://huggingface.co/datasets/Yux1ang/GTA-UAV-LR) | [HuggingFace🤗](https://huggingface.co/datasets/Yux1ang/GTA-UAV-HR) |
-| [BaiduDisk](https://pan.baidu.com/s/1vjbyDh8sYz47GoP5KBRMZQ?pwd=gtav) | Released soon |
+| [BaiduDisk](https://pan.baidu.com/s/1_gfz8ni2O8haCHMcoGfedA?pwd=gtav) | Released soon |
 
 
 The high resolution dataset will be released soon.

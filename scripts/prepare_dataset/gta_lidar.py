@@ -74,7 +74,7 @@ def calculate_projection_points(height, rot_x, rot_y, rot_z, temp_x, temp_y, hfo
     # Convert angles from degrees to radians
     hfov_rad = math.radians(hfov)
     vfov_rad = math.radians(vfov)
-    rot_x = abs(rot_x + 90)
+    rot_x = rot_x + 90
     tilt_angle_rad = math.radians(rot_x)
 
     # print(hfov_rad, vfov_rad, tilt_angle_rad)
@@ -652,9 +652,9 @@ if __name__ == "__main__":
 
     # split_depth(rgbd_path, rgb_path)
 
-    root = '/home/xmuairmud/data/GTA-UAV-data/GTA-UAV-Lidar/GTA-UAV-Lidar'
-    save_root = '/home/xmuairmud/data/GTA-UAV-data/GTA-UAV-Lidar/GTA-UAV-Lidar/same_area'
-    process_gta_data(root, save_root, h_list=[100, 200], zoom_list=[4, 5, 6, 7], offset_list=[0], split_type='same')
+    root = '/home/xmuairmud/data/GTA-UAV-data/GTA-UAV-Lidar/GTA-UAV-Lidar-LR'
+    save_root = '/home/xmuairmud/data/GTA-UAV-data/GTA-UAV-Lidar/GTA-UAV-Lidar-LR/cross_area_34'
+    process_gta_data(root, save_root, h_list=[300, 400], zoom_list=[4, 5, 6, 7], offset_list=[0], split_type='cross')
 
     # input_dir = '/home/xmuairmud/data/GTA-UAV-data/GTA-UAV-Lidar/GTA-UAV-Lidar/drone/depth_resize'
     # output_dir = '/home/xmuairmud/data/GTA-UAV-data/GTA-UAV-Lidar/GTA-UAV-Lidar/drone/depth_resize_384'

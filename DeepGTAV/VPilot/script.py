@@ -67,7 +67,7 @@ def calculate_projection_points(height, rot_x, rot_y, rot_z, temp_x, temp_y, hfo
     # Convert angles from degrees to radians
     hfov_rad = math.radians(hfov)
     vfov_rad = math.radians(vfov)
-    rot_x = abs(rot_x + 90)
+    rot_x = rot_x + 90
     tilt_angle_rad = math.radians(rot_x)
 
     # print(hfov_rad, vfov_rad, tilt_angle_rad)

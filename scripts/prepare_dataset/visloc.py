@@ -176,7 +176,7 @@ def tile_satellite(root_dir):
             #         tile = scaled_image.crop(box)
             #         transparent_tile = Image.new("RGBA", (tile_size, tile_size), (0, 0, 0, 0))
             #         transparent_tile.paste(tile, (0, 0))
-            #         transparent_tile.save(os.path.join(zoom_dir, f'{x // tile_size}_{y // tile_size}.png'))
+            #         transparent_tile.save(f'{i:02}_{zoom_dir}_{x // tile_size}_{y // tile_size}.png'))
 
     print('Tiling Satellite Done')
 
