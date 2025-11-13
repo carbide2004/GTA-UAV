@@ -32,7 +32,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=None)
     parser.add_argument('-l', '--host', default='127.0.0.1', help='The IP where DeepGTAV is running')
     parser.add_argument('-p', '--port', default=8000, help='The port where DeepGTAV is running')
-    parser.add_argument('-s', '--save_dir', default='F:\\EXPORTDIR\\VisDrone_LiDAR_presentation_1', help='The directory the generated data is saved to')
+    parser.add_argument('-s', '--save_dir', default='E:\\study\\projects\\DroneSimInGTAV\\export_data', help='The directory the generated data is saved to')    
     # args = parser.parse_args()
 
     # TODO for running in VSCode
@@ -94,7 +94,7 @@ if __name__ == '__main__':
     while True:
         try:
             count += 1
-            # print("count: ", count)
+            print("count: ", count)
 
             # Only record every 10th frame
             if count > 50 and count % 10 == 0:
@@ -141,7 +141,7 @@ if __name__ == '__main__':
             if message == None:
                 continue
 
-            # messages.append(message)
+            messages.append(message)
 
             # keep the currentTravelHeight under the wanted one
             # Move a little bit in the desired direction but primarily correct the height
@@ -190,7 +190,7 @@ if __name__ == '__main__':
                 points3d = np.delete(a, 3, 1)
 
                 # 获取 Z 坐标并对其进行归一化
-                z_min, z_max = points3d[:, 0].min(), points3d[:, 0].max()
+                z_min, z_max = min(points3d[:, 0]), max(points3d[:, 0])
                 z_norm = (points3d[:, 0] - z_min) / (z_max - z_min)
 
                 # 创建 RGB 颜色数组，基于 Z 坐标的归一化值创建颜色梯度（例如，蓝色到红色）
@@ -201,7 +201,7 @@ if __name__ == '__main__':
                 point_cloud = open3d.geometry.PointCloud()
                 point_cloud.points = open3d.utility.Vector3dVector(points3d)
                 point_cloud.colors = open3d.utility.Vector3dVector(colors)
-                # open3d.visualization.draw_geometries([point_cloud])
+                open3d.visualization.draw_geometries([point_cloud])
 
                 open3d.io.write_point_cloud(os.path.join(args.save_dir, "LiDAR", filename.replace('.png', '.ply')), point_cloud)
 
@@ -219,7 +219,8 @@ if __name__ == '__main__':
             if message["DepthBuffer"]!=None and message["DepthBuffer"]!="":
                 print("DepthBuffer")
                 a = np.frombuffer(base64.b64decode(message["DepthBuffer"]), np.float32)
-                a = a.reshape((2160, 3840))
+                # same as FRAME in Constants.py
+                a = a.reshape((IMG_HEIGHT, IMG_WIDTH))
                 
                 a = cv2.normalize(a, None, 0, 255, cv2.NORM_MINMAX)
                 a = np.uint8(a)
